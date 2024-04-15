@@ -11,12 +11,19 @@
 
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-      
-        hm = defaultdict(int)
+        hm = {}
         for i in range(len(nums)) :
-           hm[nums[i]] += 1
-
-        for key , value in hm.items():
+            hm[nums[i]] = 1 + hm.get(nums[i] , 0)
+        for key , value in hm.items() :
             if value > len(nums)/2 :
                 return key
-        return 0
+        return 0 
+      
+        # hm = defaultdict(int)
+        # for i in range(len(nums)) :
+        #    hm[nums[i]] += 1
+
+        # for key , value in hm.items():
+        #     if value > len(nums)/2 :
+        #         return key
+        # return 0
