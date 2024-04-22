@@ -17,7 +17,7 @@ class Solution:
         i = 0
         j = len(nums) - 1
         while i <= j :
-            middle = (i+j)//2
+            middle = (i+j)//2  #i+(j-i)//2  avoid integer overflow in other languges.
             if nums[middle] == target :
                 return middle
             elif nums[middle] < target :
