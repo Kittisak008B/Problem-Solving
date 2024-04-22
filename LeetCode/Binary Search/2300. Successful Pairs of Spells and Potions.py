@@ -29,7 +29,7 @@ class Solution:
             i = 0
             j = len(potions) - 1
             while i <= j :
-                mid = i+(j-i)//2  #low+(high-low)//2  avoid integer overflow in other languges.
+                mid = i+(j-i)//2  
                 if s*potions[mid] >= success :
                     j = mid - 1
                 else :
