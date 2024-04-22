@@ -19,6 +19,10 @@
 # Input: n = 2, pick = 1
 # Output: 1
 
+# Constraints:
+# 1 <= n <= 2**31 -1
+# 1 <= pick <= n
+
 # The guess API is already defined for you.
 # @param num, your guess
 # @return -1 if num is higher than the picked number
