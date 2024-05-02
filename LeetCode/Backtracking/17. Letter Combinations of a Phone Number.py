@@ -34,3 +34,8 @@ class Solution:
                 cur.pop()
         backtrack(0)
         return ans
+# Input: digits = "23"
+# Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+#                   [ ]                  i=0
+#      [a]          [b]          [c]     i=1
+# [ad][ae][af] [bd][be][bf] [cd][ce][cf] i=2
