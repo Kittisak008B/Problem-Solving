@@ -36,3 +36,31 @@ class Solution:
 #                 [2,2]                  [2]                [3]           []        i=2
 #         [2,2,2]      [2,2]        [2,3]     [2]       [3,6]  [3]     [6]     []   i=3
 # [2,2,2,2][2,2,2] [2,2,3][2,2] [2,3,6][2,3] [2,6][2]       [3,7][3] [6,7][6] [7][] i=4
+
+# sol2
+# class Solution:
+#     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+#         ans = []
+#         cur = []
+#         def backtrack(start , summ) :
+#             if summ > target :
+#                 return 
+#             if summ == target and cur not in ans :
+#                 ans.append(cur[:])
+#             for i in range(start , len(candidates)) :
+#                 cur.append(candidates[i])
+#                 backtrack(i , summ + candidates[i])
+#                 cur.pop()
+#         backtrack(0 , 0)
+#         return ans
+
+# candidates = [2,3,6,7], target = 7
+#          _______ [ ] ___________________
+#         /                \         \    \
+#       [2]__________      [3]____   [6]  [7]ok
+#       /     \      \       \    \     \
+#      [22]__  [23] [26]ok   [33] [35]x [66]x
+#     /      \    \            \
+#    [222] [223]ok [233]x      [333]x
+#   /
+# [2222]x
