@@ -36,3 +36,25 @@ class Solution:
 #    [ ]   [2]        [1]    [1,2]
 #   / \    /  \       /  \      /  \
 # [ ] [3] [2] [2,3] [1] [1,3] [1,2] [1,2,3] 
+
+# sol2
+#class Solution:
+#    def subsets(self, nums: List[int]) -> List[List[int]]:
+#        ans = []
+#        cur = []
+#        def backtrack(start) :
+#            ans.append(cur[:])
+#            for i in range(start , len(nums)) :
+#                cur.append(nums[i])
+#                backtrack(i+1)
+#                cur.pop()
+#        backtrack(0)
+#        return ans
+     
+#        _____ [ ] _____
+#       /         |     \
+#     [1]        [2]    [3]
+#     /  \        |
+#   [1,2][1,3]   [2,3]
+#   /
+# [1,2,3]
