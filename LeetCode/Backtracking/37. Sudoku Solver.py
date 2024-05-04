@@ -40,8 +40,7 @@ class Solution:
                     if is_valid(row , col , str(i)) :
                         board[row][col] = str(i)
                         if solve_sdk(row , col+1) :
-                            return True
-                        else :
-                            board[row][col] = '.'
+                            return solve_sdk(row , col+1)
+                        board[row][col] = '.'
             return False          
         solve_sdk(0,0)
