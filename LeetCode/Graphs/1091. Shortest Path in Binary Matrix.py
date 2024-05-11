@@ -17,11 +17,11 @@ class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
         if grid[0][0] == 1 or grid[-1][-1] == 1 :
             return -1
-
         rows , cols = len(grid) , len(grid[0])
         queue = collections.deque()
         queue.append((0 , 0 , 1))
-        visited = set((0 , 0))
+        visited = set()
+        visited.add((0 , 0))
 
         while queue :
             row , col , path = queue.popleft()
