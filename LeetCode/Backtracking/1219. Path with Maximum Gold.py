@@ -33,7 +33,8 @@ class Solution:
         ans = 0
         for row in range(rows) :
             for col in range(cols) :
-                ans = max(ans ,dfs(row , col , set()))
+                if grid[row][col] > 0 :
+                    ans = max(ans ,dfs(row , col , set()))
         return ans
 
 # class Solution:
@@ -56,5 +57,6 @@ class Solution:
 #         ans = 0
 #         for row in range(rows) :
 #             for col in range(cols) :
-#                 ans = max(ans ,dfs(row , col))
+#                if grid[row][col] > 0 :
+#                     ans = max(ans ,dfs(row , col))
 #         return ans
