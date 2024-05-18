@@ -19,25 +19,18 @@ class Solution:
             return False
         hm_s = {}
         hm_t = {}
-        for i in range(len(s)) :
-            hm_s[s[i]] = 1 + hm_s.get(s[i] , 0)
-            hm_t[t[i]] = 1 + hm_t.get(t[i] , 0)
+        for x in s :
+            if x not in hm_s :
+                hm_s[x] = 0
+            hm_s[x] += 1
+        for y in t :
+            if y not in hm_t :
+                hm_t[y] = 0
+            hm_t[y] += 1
         for key in hm_s :
-            if hm_s[key] != hm_t.get(key , 0) :
+            if key not in hm_t or hm_s[key] != hm_t[key] :
                 return False
         return True
-
-        # sorted_s = sorted(s)
-        # sorted_t = sorted(t)
-        # return sorted_s == sorted_t
-
-        # if len(s) != len(t):
-        #     return False
-        # counter = {}
-        # for char in s:
-        #     counter[char] = counter.get(char, 0) + 1
-        # for char in t:
-        #     if char not in counter or counter[char] == 0:
-        #         return False
-        #     counter[char] -= 1
-        # return True
+     
+     
+        
