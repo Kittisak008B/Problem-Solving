@@ -56,3 +56,41 @@ ex. coins=[1,2,5] amount=6
   1|
    {0 need 0 coin}  
 '''
+
+# Bottom Up DP(Tabulation)
+# class Solution:
+#     def coinChange(self, coins: List[int], amount: int) -> int:
+#         dp = []
+#         for i in range(amount+1) :
+#             dp.append(float('inf'))
+#         dp[0] = 0
+
+#         for i in range(1 , amount+1) :
+#             for coin in coins :
+#                 if coin <= i :
+#                     dp[i] = min(dp[i] , dp[i-coin] + 1)
+#         return dp[amount] if dp[amount] != float('inf') else -1
+
+'''
+coins = [1,2,5], amount = 6
+
+[ 0 inf inf inf inf inf inf]
+  0  1   2   3   4   5   6
+
+i=1
+[ 0  1 inf inf  inf inf inf]
+  0  1   2   3   4   5   6
+
+i=2
+[ 0  1   1 inf  inf inf inf]
+  0  1   2   3   4   5   6
+  
+i=3
+[ 0  1   1   2  inf inf inf]
+  0  1   2   3   4   5   6
+.
+.
+.
+dp =[ 0  1   1   2   2   1   2]
+      0  1   2   3   4   5   6
+'''
