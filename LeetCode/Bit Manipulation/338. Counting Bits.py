@@ -30,7 +30,7 @@ class Solution:
             dp[i] = 1 + dp[i - offset]
         return dp
 '''
-n       binary   1bit
+n       binary   num_of_1
 0	 0000     0
 1	 0001     1    1+dp[n-1]
 2	 0010     1    1+dp[n-2]
