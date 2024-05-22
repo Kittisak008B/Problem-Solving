@@ -21,23 +21,38 @@ class Solution:
                 i += 1
                 j -= 1
             return True
-        def backtrack(start) :
+
+        def bt(start) :
             if start == len(s) :
                 ans.append(cur[:])
                 return
-            for end in range(start +1 , len(s)+1) :
-                if is_palindrome(s[start:end]) :
-                    cur.append(s[start:end])
-                    backtrack(end)
+            for i in range(start+1 , len(s)+1) :
+                if is_palindrome(s[start:i]) :
+                    cur.append(s[start:i])
+                    bt(i)
                     cur.pop()
-        backtrack(0)
+        bt(0)
         return ans
-    #                       [   ]      
+    '''
+    s ='aab' len(s) = 3
+
+    bt(0) start = 0  i = 1 cur =[a] bt(1) 
+    bt(1) start = 1  i = 2 cur =[a,a] bt(2)
+    bt(2) start = 2  i = 3 cur =[a,a,b] bt(3)
+    bt(3) start = 3 =len(s) --> ans = [[a,a,b]] return
+    bt(1) start = 1  i = 3 cur =[a,ab] x
+    bt(0) start = 0  i = 2 cur =[aa] bt(2)
+    bt(2) start = 2  i = 3 cur =[aa,b] bt(3)
+    bt(3) start = 3 =len(s) --> ans = [[a,a,b] , [aa,b]] return
+    bt(0) start = 0  i = 3 cur =[aab] x
+    '''
+    #                _____ [  ] ___     
     #               /          |   \
     #            /             |     \
     #          /               |       \
-    #     ['a']              ['aa']   ['aab']x 
+    #     ['a']              ['aa']   ['aab']x  start=0
     #     /      \             |
-    #  ['a','a'] ['a','ab']x ['aa','b']           
-    #    /
-    #  ['a','a','b']       
+    #  ['a','a'] ['a','ab']x   |                start=1
+    #    /                     |
+    #  ['a','a','b']        ['aa','b']          start=2    
+    
