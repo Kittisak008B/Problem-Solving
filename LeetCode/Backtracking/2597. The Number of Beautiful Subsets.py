@@ -40,3 +40,34 @@ class Solution:
  []x [6] [4][4,6]x [2][2,6]  ans =4
 
 '''
+
+# class Solution:
+#     def beautifulSubsets(self, nums: List[int], k: int) -> int:
+#         ans = []
+#         cur = []
+#         self.res = 0
+#         def bt(start , hm) :
+#             if start == len(nums) :
+#                 return
+#             ans.append(cur[:])
+#             for i in range(start , len(nums)) :
+#                 if not hm[nums[i]-k] and not hm[nums[i]+k] :
+#                     hm[nums[i]] += 1
+#                     cur.append(nums[i])
+#                     self.res += 1
+#                     bt(i+1 , hm)
+#                     hm[nums[i]] -= 1
+#                     cur.pop()
+#         bt(0 , defaultdict(int))
+#         # print(ans)
+#         # return len(ans) -1
+#         return self.res
+'''
+       _____ [ ]x_____
+      /          |     \
+     [2]         [4]    [6]
+    /   \        |
+  [2,4]x[2,6]    [4,6]x
+  /
+[2,4,6]x
+'''
