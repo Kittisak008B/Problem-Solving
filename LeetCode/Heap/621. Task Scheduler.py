@@ -47,3 +47,34 @@ time  max_heap      queue
 7         -1                          AB_AB_A
 8   --> return time                   AB_AB_AB
 '''
+# Greedy
+# class Solution:
+#     def leastInterval(self, tasks: List[str], n: int) -> int:
+#         char_count = defaultdict(int)
+#         for char in tasks :
+#             if char not in char_count :
+#                 char_count[char] =0
+#             char_count[char] += 1
+        
+#         count_list = sorted(char_count.values() , reverse = True)
+#         max_count = count_list[0]
+
+#         i = 0
+#         n_of_max_char = 0
+#         while i < len(count_list) and count_list[i] == max_count :
+#             n_of_max_char += 1
+#             i += 1
+#         return max((max_count -1)*(n+1) + n_of_max_char , len(tasks))
+'''
+tasks =[A,A,A,B,B,B] n=2
+
+(max_count-1) * (n+1) +n_of_max_char   
+         (3-1)*(2+1)  +2
+         A,_,_ A,_,_   AB  
+         _ spots are filled with other B  --> A,B,_A,B,_,A,B  
+
+tasks =[A,C,A,B,D,B] n=1
+    max_count = 2 -->A  , n_of_max_char = 2 -->A,B
+    (max_count-1) * (n+1) +n_of_max_char = (2-1)*(1+1)+2  -> A,_ A,_ AB   _ spots are filled with other char
+                                                          --> A,C,A,D,A,B  or  A,D,A,C,A,B
+'''
