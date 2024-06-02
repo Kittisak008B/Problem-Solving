@@ -18,18 +18,39 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         if len(prices) < 2 :
             return 0
-        buy = [0 for _ in range(len(prices))]
-        max_Profit = [0 for _ in range(len(prices))]
-        buy[0] = prices[0]
-        buy[1] = min(prices[0] , prices[1])
-        max_Profit[0] = 0
-        max_Profit[1] = max(max_Profit[0] , prices[1] - prices[0])
+        dp = {}
+        def dfs(i , can_buy) :
+            if i >= len(prices) :
+                return 0
+            if (i , can_buy) in dp :
+                return dp[(i , can_buy)]
+            if can_buy :
+                buy = dfs(i+1 , not can_buy) - prices[i]
+                cooldown = dfs(i+1 , can_buy)
+                dp[(i , can_buy)] = max(buy , cooldown)
+            else :
+                sell = dfs(i+2 , not can_buy) + prices[i]
+                cooldown = dfs(i+1 , can_buy)
+                dp[(i , can_buy)] = max(sell , cooldown)
+            return dp[(i , can_buy)]
+        return dfs(0 , True)
 
-        for i in range(2 , len(prices)) :
-            buy[i] = min(buy[i-1] , prices[i] - max_Profit[i-2])
-            max_Profit[i] = max(max_Profit[i-1] , prices[i] - buy[i-1])
+# class Solution:
+#     def maxProfit(self, prices: List[int]) -> int:
+#         if len(prices) < 2 :
+#             return 0
+#         buy = [0 for _ in range(len(prices))]
+#         max_Profit = [0 for _ in range(len(prices))]
+#         buy[0] = prices[0]
+#         buy[1] = min(prices[0] , prices[1])
+#         max_Profit[0] = 0
+#         max_Profit[1] = max(max_Profit[0] , prices[1] - prices[0])
 
-        return max_Profit[-1]
+#         for i in range(2 , len(prices)) :
+#             buy[i] = min(buy[i-1] , prices[i] - max_Profit[i-2])
+#             max_Profit[i] = max(max_Profit[i-1] , prices[i] - buy[i-1])
+
+#         return max_Profit[-1]
 '''
     prices = [1, 2, 3, 0, 2]
               b  s  c  b  s
