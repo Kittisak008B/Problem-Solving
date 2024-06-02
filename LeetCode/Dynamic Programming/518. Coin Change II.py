@@ -37,3 +37,17 @@ class Solution:
   [1,2]| 1 1 2 2 3 3
 [1,2,5]| 1 1 2 2 3 4 --> 4
 '''
+
+# class Solution:
+#     def change(self, amount: int, coins: List[int]) -> int:
+#         dp = {}
+#         def dfs(i , value) :
+#             if value == amount :
+#                 return 1
+#             if value > amount or i >= len(coins) :
+#                 return 0
+#             if (i , value) in dp :
+#                 return dp[(i , value)]
+#             dp[(i , value)] = dfs(i , value + coins[i]) + dfs(i + 1 , value) #use this coin + skip this coin(use another coin)
+#             return dp[(i , value)]
+#         return dfs(0 , 0)
