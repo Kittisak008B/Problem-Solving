@@ -44,3 +44,24 @@ dfs(1,4) = 1
 dfs(1,5) = 1
 dfs(1,6) = 1 ways = 6
 '''
+
+# class Solution:
+#     def numRollsToTarget(self, n: int, k: int, target: int) -> int:
+#         mod = 10**9 + 7
+#         dp = [[0 for _ in range(target + 1)] for _ in range(n + 1)]
+#         dp[0][0] = 1
+#         for row in range(n+1) :
+#             for col in range(target+1) :
+#                 for val in range(1 , k+1) :
+#                     if col - val >= 0 :
+#                         dp[row][col] = ( dp[row][col] + dp[row-1][col-val] ) % mod
+#         return dp[-1][-1]
+'''
+ex.2 Input: n = 2, k = 6, target = 7
+
+  0 1 2 3 4 5 6 7 target  k=6
+0 1 0 0 0 0 0 0 0 
+1 0 1 1 1 1 1 1 1
+2 0 0 1 2 3 4 5 6
+n
+'''
