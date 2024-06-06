@@ -16,7 +16,7 @@
 
 class Solution:
     def maxCoins(self, nums: List[int]) -> int:
-        dp = [[0 for _ in range(len(nums))] for _ in range(len(nums))]
+        dp = [[[0,0] for _ in range(len(nums))] for _ in range(len(nums))]
         for length in range(1 , len(nums) + 1) :
             for i in range(len(nums) + 1 - length) :
                 j = i + length - 1
@@ -30,11 +30,12 @@ class Solution:
                     val1_in_dp = 0
                     val2_in_dp = 0
                     if i != lastburst :
-                        val1_in_dp = dp[i][lastburst - 1]
+                        val1_in_dp = dp[i][lastburst - 1][0]
                     if j != lastburst :
-                        val2_in_dp = dp[lastburst + 1][j]
-                    dp[i][j] = max(dp[i][j] , val1_in_dp + val2_in_dp + left_val*nums[lastburst]*right_val)
-        return dp[0][len(nums)-1]     
+                        val2_in_dp = dp[lastburst + 1][j][0]
+                    if val1_in_dp + val2_in_dp + left_val*nums[lastburst]*right_val > dp[i][j][0] :
+                        dp[i][j] = [val1_in_dp + val2_in_dp + left_val*nums[lastburst]*right_val , lastburst]
+        return dp[0][len(nums)-1][0] 
 '''
     0      1      2       3    j (value , index of last burst balloon)
 0 (3,0) (30,0) (159,0) (167,3)
