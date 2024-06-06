@@ -13,6 +13,8 @@
 
 class Solution:
     def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
+        if len(hand) % groupSize != 0 :
+            return False
         d = defaultdict(int)
         for card in hand :
             if card not in d :
@@ -29,3 +31,21 @@ class Solution:
                 if d[card] == 0 :
                     heapq.heappop(heap)
         return True
+
+# class Solution:
+#     def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
+#         if len(hand) % groupSize != 0 :
+#             return False
+#         d = defaultdict(int)
+#         for card in hand :
+#             if card not in d :
+#                 d[card] = 0
+#             d[card] += 1
+#         sort_d = sorted(d.keys())
+#         for card in sort_d :
+#             if d[card] > 0 :
+#                 for i in range(1 , groupSize) :
+#                     if d[card + i] < d[card] :
+#                         return False
+#                     d[card + i] -= d[card]
+#         return True
