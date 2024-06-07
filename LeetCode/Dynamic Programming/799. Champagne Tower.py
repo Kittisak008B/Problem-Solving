@@ -41,3 +41,17 @@ poured = 10
       /       \   /    \   /     \
 (0.375,0.375)(1,1.625)(1,1.625)(0.375,0.375) flow (1.75-1)/2 = 0.375 , (3.5-1)/2 = 1.25
 '''
+
+# class Solution:
+#     def champagneTower(self, poured: int, query_row: int, query_glass: int) -> float:
+#         dp = {}
+#         def dfs(i , j) :
+#             if i == 0 and j == 0 :
+#                 return poured
+#             if j > i or j < 0 or i < 0 :
+#                 return 0
+#             if (i , j) in dp :
+#                 return dp[(i , j)]
+#             dp[(i,j)] = max( (dfs(i-1 , j-1) - 1)/2 , 0) + max( (dfs(i-1 , j) - 1)/2 , 0)
+#             return dp[(i,j)]
+#         return min(dfs(query_row,query_glass) , 1)
