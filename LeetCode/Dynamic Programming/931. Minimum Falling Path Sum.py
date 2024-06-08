@@ -28,4 +28,13 @@ class Solution:
         for k in range(len(matrix[0])) :
             ans = min(ans , dfs(0 , k))
         return ans
-      
+
+# class Solution:
+#     def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+#         for i in range(len(matrix)-2 ,-1 ,-1) :
+#             for j in range(len(matrix)) :
+#                 down = matrix[i+1][j]
+#                 down_left = matrix[i+1][j-1] if j-1 >= 0 else float('inf')
+#                 down_right = matrix[i+1][j+1] if j+1 < len(matrix) else float('inf')
+#                 matrix[i][j] += min(down , down_left , down_right)
+#         return min(matrix[0])
