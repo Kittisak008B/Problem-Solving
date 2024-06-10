@@ -38,7 +38,6 @@ class Solution:
                         dp[i][j] = dp[i - 1][j] or dp[i][j - 2]
                 else :
                     dp[i][j] = False
-        print(dp)
         return dp[-1][-1]
 '''
 p='ab*.c'   s='abbac'
