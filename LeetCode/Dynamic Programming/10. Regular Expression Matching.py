@@ -70,3 +70,37 @@ if ==  . : dp[i][j] = dp[i-1][j-1]
 2 a F F F F T T F T T
 3 a F F F F F T F T T
 '''
+
+# class Solution:
+#     def isMatch(self, s: str, p: str) -> bool:
+#         dp = {}
+#         def dfs(i , j) :
+#             if (i , j) in dp :
+#                 return dp[(i , j)] 
+#             if i >= len(s) and j >= len(p) :
+#                 return True
+#             if j >= len(p) :
+#                 return False
+#             matching =  i < len(s) and ( s[i] == p[j] or p[j] == '.' ) 
+#             if j + 1 < len(p) and p[j + 1] == '*' :
+#                 dp[(i , j)] = (matching and dfs(i + 1 , j) ) or dfs(i , j + 2)
+#                 return dp[(i , j)]
+#             if matching :
+#                 dp[(i , j)] = dfs(i + 1 , j + 1)
+#                 return dp[(i , j)]
+#             dp[(i , j)] = False
+#             return dp[(i , j)]           
+#         return dfs(0 , 0)
+'''
+s='aab' p='a*b'  
+      i       
+              j
+              
+         if p[j+1] == *
+      i+1,j / \ i,j+2 
+  dfs(1,0) a   ''
+          / \
+dfs(2,0) aa  a
+        /  \
+     aaax  aa dfs(2,2) -> dfs(2,2) = dfs(3,3) = True
+'''
