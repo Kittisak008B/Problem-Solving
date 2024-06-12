@@ -18,19 +18,40 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        r = 0
+        # Dutch National Flag
+        red_white = 0  
+        white_blue =len(nums) - 1
         w = 0
-        b = len(nums) -1 
-        while w <= b :
-            if nums[w] == 2 :
-                nums[w] ,nums[b] = nums[b] ,nums[w]
-                b -=1
-            elif nums[w] == 0 :
-                nums[w] ,nums[r] = nums[r] ,nums[w]
+        while w <= white_blue :
+            if nums[w] == 0 :
+                nums[w] , nums[red_white] = nums[red_white] , nums[w]
+                red_white += 1
                 w += 1
-                r += 1
-            else :
-                w += 1           
+                continue
+            if nums[w] == 2 :
+                nums[w] , nums[white_blue] = nums[white_blue] , nums[w]
+                white_blue -= 1
+                continue
+            w += 1
+
+# class Solution:
+#     def sortColors(self, nums: List[int]) -> None:
+#         """
+#         Do not return anything, modify nums in-place instead.
+#         """
+#         r = 0
+#         w = 0
+#         b = len(nums) -1 
+#         while w <= b :
+#             if nums[w] == 2 :
+#                 nums[w] ,nums[b] = nums[b] ,nums[w]
+#                 b -=1
+#             elif nums[w] == 0 :
+#                 nums[w] ,nums[r] = nums[r] ,nums[w]
+#                 w += 1
+#                 r += 1
+#             else :
+#                 w += 1           
 '''
 [2 ,0 ,2 ,1 ,1 ,0 ,1]
 r,w                b
