@@ -27,4 +27,30 @@ class Solution:
                      j      
    dp [1 ,1,1,2,2,3, 4 , 4]
     '''
-  
+# class Solution:
+#     def lengthOfLIS(self, nums: List[int]) -> int:
+#         tails = [0 for _ in range(len(nums))]    #O(N*log(N))
+#         size = 0 
+#         for x in nums :
+#             i , j = 0 , size
+#             while i != j :
+#                 m = (i+j)//2
+#                 if tails[m] < x :
+#                     i = m + 1
+#                 else :
+#                     j = m
+#             tails[i] = x
+#             size = max(size , i + 1)
+#         return size
+'''
+nums = [10,9,2,5,3,7,101,18]
+                         
+tails = 10
+        9  
+        2
+        2 5
+        2 3
+        2 3 7
+        2 3 7 101
+        2 3 7 18
+'''
