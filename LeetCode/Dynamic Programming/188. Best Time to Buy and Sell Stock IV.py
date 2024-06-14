@@ -60,3 +60,23 @@ r,c=2,5 : no trans=4 , complete 2 trans@day5 buy@day0 3-3+0=0 buy@day1 3-2+0=1 b
 ...
 r,c=3,7
 '''
+
+# Memoization
+# class Solution:
+#     def maxProfit(self, k: int, prices: List[int]) -> int:
+#         dp = {}
+#         def dfs(i , can_buy , trans_remain) :
+#             if i >= len(prices) or trans_remain == 0 :
+#                 return 0
+#             if (i , can_buy , trans_remain) in dp :
+#                 return dp[(i , can_buy , trans_remain)]
+#             if can_buy :
+#                 buy = dfs(i + 1 , False , trans_remain) - prices[i]
+#                 cooldown = dfs(i + 1 , True , trans_remain)
+#                 dp[(i , can_buy , trans_remain)] = max(buy , cooldown)
+#             else :
+#                 sell = dfs(i + 1 , True , trans_remain -  1) + prices[i]
+#                 cooldown = dfs(i + 1 , False , trans_remain)
+#                 dp[(i , can_buy , trans_remain)] = max(sell , cooldown)
+#             return dp[(i , can_buy , trans_remain)]
+#         return dfs(0 , True , k)
