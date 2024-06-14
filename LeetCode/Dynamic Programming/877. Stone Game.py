@@ -39,4 +39,27 @@ class Solution:
                 dp[(p , i , j)] = min( -piles[i] + dfs(0 , i+1 , j) , -piles[j] + dfs(0 , i , j-1))
                 return dp[(p , i , j)] 
         return dfs(p=0 , i=0 , j=len(piles) - 1) > 0  #p=0 Alice, p=1 Bob
-      
+
+
+# class Solution:
+#     def stoneGame(self, piles: List[int]) -> bool:
+#         dp = {}
+#         def dfs(i , j) :
+#             if i > j :
+#                 return 0
+#             if (i , j) in dp :
+#                 return dp[(i , j)]
+#             ans = float('-inf')
+#             ans = max(ans , piles[i] - dfs(i+1 , j) , piles[j] - dfs(i , j-1))
+#             dp[(i , j)] = ans 
+#             return dp[(i , j)]
+#         return dfs(0 , len(piles)-1) > 0
+'''
+piles = [3,7,2,3]
+
+ans = max(-inf , 3 - max(-inf , 7 - max(-inf , 2-max(-inf,3) , 3-max(-inf,2)) , 3- max(-inf,7-max(-inf,2),2-max(-inf,7)) ) , 3 - max(-inf, 3 - 5 , 2 - 4 ))
+ans = max(-inf , 3 - max( 7- 1 , 3- 5 ) , 3 - max( 3 - 5 , 2 - 4 ))
+ans = max(-inf , 3 - max( 6 , -2 ) ,3 - max( -2 , -2 ))
+ans = max(-inf , 3 - 6 , 3 - (-2))
+ans = max(-inf , -3 , 5 ) -> relative_score = 5 (Alice pick 3 form last then Bob pick 3 at first then Alice pick 7 then bob pick 2  ## Alice 3+7=10 Bob 3+2=5 relative_score=10-5= 5)
+'''
