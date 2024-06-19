@@ -49,3 +49,29 @@ s = "babgbag", t = "bag"
        b  ag
          bag
 '''
+
+# class Solution:
+#     def numDistinct(self, s: str, t: str) -> int:
+#         dp = [[0 for _ in range(len(t)+1)] for _ in range(len(s) + 1)]
+#         for row in range(len(s) + 1) :
+#             dp[row][0] = 1
+#         for row in range(1 , len(s) + 1) :
+#             for col in range(1 , len(t) + 1) :
+#                 dp[row][col] += dp[row-1][col]
+#                 if s[row-1] == t[col-1] :
+#                     dp[row][col] += dp[row-1][col-1]
+#         return dp[row][col]
+'''
+       r a b b i t   t
+     0 1 2 3 4 5 6
+  0  1 0 0 0 0 0 0 
+r 1  1 1 0 0 0 0 0 
+a 2  1 1 1 0 0 0 0 
+b 3  1 1 1 1 0 0 0 
+b 4  1 1 1 2 1 0 0
+b 5  1 1 1 3 3 0 0
+i 6  1 1 1 3 3 3 0
+t 7  1 1 1 3 3 3 3
+
+s
+'''
