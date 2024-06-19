@@ -73,3 +73,17 @@ s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
              (5,5,10)  
                True 
 '''
+# class Solution:
+#     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
+#         dp = {}
+#         def dfs(i , j , k) :
+#             if i >= len(s1) and j >= len(s2) and k >= len(s3) :
+#                 return True
+#             if (i , j , k) in dp :
+#                 return dp[(i , j , k)]
+#             dp[(i , j , k)] = ( (i<len(s1) and s1[i]==s3[k] and dfs(i+1,j,k+1)) or 
+#                                 (j<len(s2) and s2[j]==s3[k] and dfs(i,j+1,k+1)) ) and k<len(s3)
+#             return dp[(i , j , k)]      
+#         if len(s1) + len(s2) != len(s3) :
+#             return False
+#         return dfs(0 , 0 , 0)
