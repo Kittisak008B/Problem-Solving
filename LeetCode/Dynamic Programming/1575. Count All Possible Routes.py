@@ -62,7 +62,7 @@ locations = [2,3,6,8,4], start = 1, finish = 3, fuel = 5
                                                           way+1
 
 locations = [4,3,1], start = 1, finish = 0, fuel = 6
-        idx 0 1 2
+         idx 0 1 2
                     (1 , 6)
                    /       \from idx1 to 2
           way+1(0,5)      (2,4) 
