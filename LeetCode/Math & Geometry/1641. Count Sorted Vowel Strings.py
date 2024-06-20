@@ -79,3 +79,30 @@ Combination with repetitions. C(n+k-1,k)
                             ->choose to distribute n distinct objects into k categories
          5 vowels to choose ->C(5+k-1,k) = C(4+k,k) = (k+1)(k+2)(k+3)(k+4)/4!
 '''
+
+class Solution:
+    def countVowelStrings(self, n: int) -> int:
+        dp = [[0 for _ in range(5)] for _ in range(n)]
+        for col in range(5) :
+            dp[0][col] = 1
+        for row in range(1, n) :
+            dp[row][0] = dp[row-1][0] + dp[row-1][1] + dp[row-1][2] + dp[row-1][3] + dp[row-1][4]
+            dp[row][1] = dp[row-1][1] + dp[row-1][2] + dp[row-1][3] + dp[row-1][4]
+            dp[row][2] = dp[row-1][2] + dp[row-1][3] + dp[row-1][4]
+            dp[row][3] = dp[row-1][3] + dp[row-1][4]
+            dp[row][4] = dp[row-1][4]
+        count = 0
+        for col in range(5) :
+            count += dp[-1][col]
+        return count
+'''
+    a  e  i  o  u
+    0  1  2  3  4
+1   1  1  1  1  1     a                e              i           o         u
+2   5  4  3  2  1     aa ae ai ao au   ee ei eo eu    ii io iu    oo ou     uu
+3  15 10  6  3  1     
+4
+5
+...
+n
+'''
