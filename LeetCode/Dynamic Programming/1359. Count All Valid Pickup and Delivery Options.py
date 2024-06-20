@@ -60,3 +60,16 @@ n = 2
             
             dp = {(0, 1): 1, (0, 2): 2, (1, 0): 1, (1, 1): 3, (2, 0): 6}
 '''
+
+class Solution:
+    def countOrders(self, n: int) -> int:
+        return math.factorial(2*n)//(2**n)%(10**9+7)
+'''
+permutation
+n = 2
+_ _ _ _ 
+4*3*2*1
+P1D1 P2D2 ok
+D1P1 D2P2 x
+-> 4!/(2*2)     -> (2n)!/(2**n) 
+'''
