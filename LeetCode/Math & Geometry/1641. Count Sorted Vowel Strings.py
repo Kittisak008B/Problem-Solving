@@ -106,3 +106,30 @@ class Solution:
 ...
 n
 '''
+
+class Solution:
+    def countVowelStrings(self, n: int) -> int:
+        def c(n , vowel) :
+            if n == 1 :
+                return 1
+            count = 0 
+            for i in range(vowel , 5) :
+                count += c(n-1 , i)
+            return count
+        return c(n+1 , 0)
+'''
+a e i o u
+0 1 2 3 4
+                                              c(n,vowel)
+                                               c(3,0) a__
+                    ______________________________|_______________________________________
+                   /                     |                       |            |           \
+              c(2,0)                 c(2,1)                   c(2,2)         c(2,3)      c(2,4)
+               a_                      e_                      i_             o_          u_
+ ______________|_________        _______|________         ______|_______     __|___        |
+/      |     |     |     \      /      |    |    \       /      |       \   /      \       |  
+c(1,0)c(1,1)c(1,2)c(1,3)c(1,4) c(1,1)c(1,2)c(1,3)c(1,4) c(1,2)c(1,3)c(1,4) c(1,3)c(1,4) c(1,4)
+  a      e    i      o     u     e     i      o     u     i      o     u     o     u       u
+         aa ae ai ao au          ee ei eo eu               ii io iu            oo ou       uu
+         5+4+3+2+1 = 15
+'''
