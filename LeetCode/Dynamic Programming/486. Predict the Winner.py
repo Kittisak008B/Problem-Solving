@@ -30,4 +30,23 @@ class Solution:
             dp[(i , j)] = res
             return dp[(i , j)]
         return dfs(0 , len(nums)-1) >= 0
-      
+'''
+nums = [1,5,2,3]
+        i     j
+                          dfs(i,j)  
+                             (0,3)
+              ___________choose 1 or 3________
+             /                                \
+  p1        1                       p1         3           first turn 
+          /    \                               / \           
+  p2     3       5                  p2        1   2  
+   not optimal     \                 not optimal    \     
+  p1 gonna choose5   \                              / \
+  on the next turn   / \                   p1      1    5           
+                p1  3   2 not optimal     not optimal     \ 
+              # p1 1+3=4                             p2    1
+                p2 5+2=7                                  # p1 3+5=8
+            p1 loss this path not optimal                   p2 1+2=3
+          (p1 not gonna choose 1 at first turn )       both player play optimal p1 can win -> True 
+                                                    (relative value-> 3-2+5-1= 5  >= 0 -> True)  
+'''
