@@ -21,12 +21,13 @@ class Solution:
         d = defaultdict(set)
         def palindrome_from_mid(left, right) :
             while left >= 0 and right < len(s) and s[left] == s[right] :
-                d[(left,right)].add(s[left:right+1])   ### Memory Limit Exceeded
+                #d[(left,right)].add(s[left:right+1])   ### Memory Limit Exceeded
+                d[(left,right)].add('Palindrome')
                 left -= 1
                 right += 1
         for i in range(len(s)) :
-            odd = palindrome_from_mid(i,i)     #ex. a  aaa
-            even = palindrome_from_mid(i,i+1)  #ex. aa  aaaa
+            palindrome_from_mid(i,i)     #check odd length  ex. a  aaa
+            palindrome_from_mid(i,i+1)   #check even length ex. aa  aaaa
         # print(d)
         dp = {}
         def dfs(left , right) :
@@ -52,8 +53,8 @@ s = "aab"
                 /   \
             a|ab    aa|b
             /          \
-           a|b          b  this path 1 cut  ##min cuts
+           a|b          b  this path 1 cut  ##min cuts     Time: O(n**2) Space: O(n**2)
            /
           b -> already palindrome don't need to cut  
-          this path 2 cuts     
+          this path 2 cuts                              
 '''
