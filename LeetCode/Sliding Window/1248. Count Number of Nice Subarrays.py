@@ -25,10 +25,9 @@ class Solution:
             if nums[r] % 2 == 1 :
                 odd += 1
             while odd > k :
-                if nums[l] % 2 == 1 :
-                    odd -= 1
-                l += 1
-                m = l
+                m += 1
+                l = m
+                odd -= 1
             if odd == k :
                 while nums[m] % 2 == 0 :
                     m += 1
