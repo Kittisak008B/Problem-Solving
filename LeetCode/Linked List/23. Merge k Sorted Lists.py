@@ -44,6 +44,8 @@ class Solution:
                 heapq.heappush(heap , (node.next.val , i , node.next))   
         return dummy.next    
 '''
+Input: lists = [[1,4,5],[1,3,4],[2,6]]   Output: [1,1,2,3,4,4,5,6]
+
 heap = [(node.val , i , node)] = [(1,0,node1) (1,1,node1) (2,2,node2)]
 
 dummy =ListNode()
@@ -52,7 +54,7 @@ pointer = dummy
 heap = [(1,0,node1) (1,1,node1) (2,2,node2) (4,0,node4)]
            pop                                 push
 dummy->node1
-          p    
+       pointer    
 
 heap = [(1,1,node1) (2,2,node2) (3,1,node3) (4,0,node4)]
            pop                     push
