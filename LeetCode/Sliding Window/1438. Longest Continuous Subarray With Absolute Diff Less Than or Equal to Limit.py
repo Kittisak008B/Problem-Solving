@@ -50,9 +50,10 @@ class Solution:
 nums = [8,2,4,7,3], limit = 4
             l   
                 r
-two heap min_heap = [8]             max_heap = [-8]          ->ok longest = 1 (8)
-         min_heap = [2 , 8]         max_heap = [-8 -2]       ->not ok max_abs_diff > 4  pop 8
-         min_heap = [2 , 4 , 8]     max_heap = [-4 , -2]     ->ok longest = 2 (2,4)
-         min_heap = [2 , 4 , 7 , 8] max_heap = [-7, -4 , -2] ->not ok pop 2
-         min_heap = [3 , 4 , 7 , 8] max_heap = [-7, -4 , -2] ->ok longest = 3 (4,7,3)
+two heaps decreasing                 increasing
+          min_heap = [8]             max_heap = [-8]          ->ok longest = 1 (8)
+          min_heap = [2 , 8]         max_heap = [-8 -2]       ->not ok max_abs_diff > 4  pop 8
+          min_heap = [2 , 4 , 8]     max_heap = [-4 , -2]     ->ok longest = 2 (2,4)
+          min_heap = [2 , 4 , 7 , 8] max_heap = [-7, -4 , -2] ->not ok pop 2
+          min_heap = [3 , 4 , 7 , 8] max_heap = [-7, -4 , -2] ->ok longest = 3 (4,7,3)
 '''
