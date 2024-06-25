@@ -61,3 +61,29 @@ idx
 3         0   0   0 
     nums2
 '''
+
+# class Solution:    # bottom up space optimized
+#     def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
+#         if max(nums1) < 0 and min(nums2) > 0 :
+#             return max(nums1)*min(nums2)
+#         if max(nums2) < 0 and min(nums1) > 0 :
+#             return max(nums2)*min(nums1)
+#         if len(nums1) > len(nums2) :
+#             nums1 , nums2 = nums2 , nums1
+#         dp = [0 for _ in range(len(nums1)+1)]
+#         for row in range(len(nums2)-1 , -1 ,-1) :
+#             cur_dp = [0 for _ in range(len(nums1)+1)]
+#             for col in range(len(nums1)-1 , -1 ,-1) :
+#                 cur_dp[col] = max(nums2[row]*nums1[col] + dp[col+1] , dp[col] , cur_dp[col+1]) 
+#             dp = cur_dp
+#         return dp[0]
+'''
+       idx0   1   2  
+          3  -2      nums1
+idx     
+0    2    21  12  0                                                    cur_dp  dp
+1   -6    21  12  0                                      cur_dp        dp
+2    7    21  0   0      cur_dp = [0 , 0 , 0]->[21,0,0]->dp=[21,0,0]
+3         0   0   0      dp = [0 , 0 , 0]
+    nums2
+'''
