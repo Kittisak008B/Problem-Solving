@@ -36,4 +36,28 @@ class Solution:
             dp[(i , j)] = dot_product
             return dp[(i , j)]
         return dfs(0 , 0)
-      
+
+
+# class Solution:
+#     def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
+#         if max(nums1) < 0 and min(nums2) > 0 :
+#             return max(nums1)*min(nums2)
+#         if max(nums2) < 0 and min(nums1) > 0 :
+#             return max(nums2)*min(nums1)
+#         if len(nums1) > len(nums2) :
+#             nums1 , nums2 = nums2 , nums1
+#         dp = [[0 for _ in range(len(nums1)+1)] for _ in range(len(nums2)+1)]
+#         for row in range(len(nums2)-1 , -1 , -1) :
+#             for col in range(len(nums1)-1 , -1 , -1) :
+#                 dp[row][col] = max(nums2[row]*nums1[col] +dp[row+1][col+1] , dp[row+1][col] , dp[row][col+1])
+#         return dp[0][0]
+'''
+       idx0   1   2  
+          3  -2      nums1
+idx     
+0    2    21  12  0
+1   -6    21  12  0
+2    7    21  0   0
+3         0   0   0 
+    nums2
+'''
