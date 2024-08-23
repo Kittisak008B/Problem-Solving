@@ -28,7 +28,7 @@ class Solution:
         denominator = 1
         i = 0
         while i < len(nums) :
-            numerator = numerator * nums[i + 1] + denominator * nums[i]
+            numerator = numerator * nums[i + 1] + nums[i] * denominator  # x1/y1 + x2/y2 = (x1*y2 + x2*y1) / (y1*y2) 
             denominator *= nums[i + 1]
             i += 2
         Greatest_Common_Divisor = gcd(numerator, denominator) 
