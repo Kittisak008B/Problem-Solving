@@ -81,13 +81,13 @@ Y : 0:stone_0 , 1:stone_1 ,2:stone_3
 
 stone_0 -- stone_1 -- stone_4 -- stone_5
  |                                 |
- stone_2 -- stone_3  ---------------  -> union(stone_5,stone_3) already has same parent  
+ stone_2 -- stone_3  ---------------   -> union(stone_5,stone_3) already has same parent  
                           
 count = 0
 stone_0-connect-stone_1 ->count=1
-stone_0-stone_2 ->count=2
-stone_2-stone_3 ->count=3
-stone_1-stone_4 ->count=4
-stone_4-stone_5 ->count=5
-stone_5-stone_3 ->count=5 -> union(stone_5,stone_3) already has same parent (gonna return False)
+stone_0--stone_2 ->count=2
+stone_2--stone_3 ->count=3
+stone_1--stone_4 ->count=4
+stone_4--stone_5 ->count=5
+stone_5--stone_3 ->count=5 -> union(stone_5,stone_3) already has same parent (gonna return False)
 '''
