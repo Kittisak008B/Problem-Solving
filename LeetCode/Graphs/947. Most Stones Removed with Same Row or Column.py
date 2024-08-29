@@ -63,14 +63,31 @@ class Solution:
         X , Y = {} , {}
         Uf = UnionFind(len(stones))
         count = 0
-        for i ,(x,y) in enumerate(stones) :
+        for stone_i , (x,y) in enumerate(stones) :
             if x in X :
-                count += Uf.union(i , X[x])
+                count += Uf.union(stone_i , X[x])
             else :
-                X[x] = i
+                X[x] = stone_i
             if y in Y :
-                count += Uf.union(i , Y[y])
+                count += Uf.union(stone_i , Y[y])
             else :
-                Y[y] = i
+                Y[y] = stone_i
         return count
-      
+'''
+stones = [[0,0],[0,1],[1,0],[1,2],[2,1],[2,2]]
+         stone_0  1     2     3     4     5  
+X : 0:stone_0 , 1:stone_2 , 2:stone_4
+Y : 0:stone_0 , 1:stone_1 ,2:stone_3  
+
+stone_0 -- stone_1 -- stone_4 -- stone_5
+ |                                 |
+ stone_2 -- stone_3  ---------------  -> union(stone_5,stone_3) already has same parent  
+                          
+count = 0
+stone_0-connect-stone_1 ->count=1
+stone_0-stone_2 ->count=2
+stone_2-stone_3 ->count=3
+stone_1-stone_4 ->count=4
+stone_4-stone_5 ->count=5
+stone_5-stone_3 ->count=5 -> union(stone_5,stone_3) already has same parent (gonna return False)
+'''
