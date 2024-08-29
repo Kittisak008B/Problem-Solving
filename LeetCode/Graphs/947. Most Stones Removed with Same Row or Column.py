@@ -47,7 +47,7 @@ class UnionFind:
         Px = self.find_parent(x)
         Py = self.find_parent(y)
         if Px == Py : #don't need to union ->parent_x and parent_y already in the same set
-            return False #can remove edge
+            return False 
         if Px != Py :
             if self.rank[Px] > self.rank[Py]:
                 self.parent[Py] = Px
