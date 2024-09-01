@@ -31,4 +31,10 @@ class Solution:
             for j in range(n) :
                 res[i][j] = original[i*n + j]
         return res
-      
+'''
+original 012345678  m=3,n=3
+    j=0
+ i=0 0 1 2 
+     3 4 5 
+     6 7 8 
+'''
