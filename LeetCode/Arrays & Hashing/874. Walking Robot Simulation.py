@@ -57,7 +57,8 @@ class Solution:
                 dx , dy = dirs[d][0] , dirs[d][1]
                 for _ in range(c) :
                     if (x + dx , y + dy) not in obstacles_set :
-                        x , y = x + dx , y + dy
+                        x += dx
+                        y += dy
                     else :
                         break
                 res = max(res , x**2 + y**2)
