@@ -36,7 +36,7 @@
 # 1 <= commands.length <= 10**4
 # commands[i] is either -2, -1, or an integer in the range [1, 9].
 # 0 <= obstacles.length <= 10**4
-# -3 * 104 <= xi, yi <= 3 * 10**4
+# -3 * 10**4 <= xi, yi <= 3 * 10**4
 # The answer is guaranteed to be less than 2**31.
 
 class Solution:
