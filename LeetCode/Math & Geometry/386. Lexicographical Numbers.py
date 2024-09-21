@@ -26,3 +26,24 @@ class Solution:
                     cur_num //= 10
                 cur_num += 1
         return res
+
+# class Solution:
+#     def lexicalOrder(self, n: int) -> List[int]:
+#         res = []
+#         def dfs(x) :
+#             if x > n:
+#                 return
+#             res.append(x)
+#             x *= 10
+#             for i in range(10) :
+#                 dfs(x + i)
+#         for i in range(1 , 10) :
+#             dfs(i)
+#         return res
+'''
+n= 13     
+         /             \       \ 
+      dfs(1)______     dfs(2) ...dfs(9)
+      /           \ 
+     dfs(10) ...dfs(13)
+'''
