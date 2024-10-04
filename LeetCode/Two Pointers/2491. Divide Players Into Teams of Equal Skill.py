@@ -42,3 +42,20 @@ class Solution:
             i += 1
             j -= 1
         return res
+
+# class Solution:
+#     def dividePlayers(self, skill: List[int]) -> int:
+#         target = sum(skill) // (len(skill)*0.5)
+#         d = defaultdict(int)
+#         res = 0
+#         for num in skill :
+#             d[num] += 1
+#         for num in skill :
+#             if d[num] :
+#                 d[num] -= 1
+#                 remainder = target - num
+#                 if not d[remainder] :
+#                     return -1
+#                 res += num*remainder
+#                 d[remainder] -= 1
+#         return int(res)
