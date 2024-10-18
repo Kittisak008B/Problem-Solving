@@ -14,7 +14,7 @@
 # Example 2:
 # Input: nums = [2,2,2]
 # Output: 7
-# Explanation: All non-empty subsets of [2,2,2] have a bitwise OR of 2. There are 23 - 1 = 7 total subsets.
+# Explanation: All non-empty subsets of [2,2,2] have a bitwise OR of 2. There are 2**3 - 1 = 7 total subsets.
   
 # Example 3:
 # Input: nums = [3,2,1,5]
