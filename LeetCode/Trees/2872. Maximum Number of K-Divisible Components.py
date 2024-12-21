@@ -6,12 +6,11 @@
 # Return the maximum number of components in any valid split.
 
 # Example 1:
-#        1                1
-#       / \                \
-#      2   3       ->   2   3
+#        1                  1
+#       / \                  \
+#      2   3     ->     2     3
 #     / \              / \
-#   ]4   0            4   0
-
+#    4   0            4   0
 # Input: n = 5, edges = [[0,2],[1,2],[1,3],[2,4]], values = [1,8,1,4,4], k = 6
 # Output: 2
 # Explanation: We remove the edge connecting node 1 with 2. The resulting split is valid because:
@@ -23,8 +22,8 @@
 #            0                         0
 #           / \                  2           1 
 #         2     1         ->    / \         / \
-#        / \   / \             6   5       4   3
-#       6   5 4   3
+#        /\     /\             6   5       4   3
+#       6  5   4  3
 # Input: n = 7, edges = [[0,1],[0,2],[1,3],[1,4],[2,5],[2,6]], values = [3,0,6,1,5,2,1], k = 3
 # Output: 3
 # Explanation: We remove the edge connecting node 0 with 2, and the edge connecting node 0 with 1. The resulting split is valid because:
