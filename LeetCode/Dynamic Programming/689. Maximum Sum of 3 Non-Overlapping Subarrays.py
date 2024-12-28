@@ -19,7 +19,7 @@ class Solution:
         def dfs(idx , used) :
             if used == 3 :
                 return (0 , [])
-            if idx - used*k > len(nums) :
+            if idx + k - 1 >= len(nums) :
                 return (0 , [])
             if (idx , used) in dp :
                 return dp[(idx , used)]
