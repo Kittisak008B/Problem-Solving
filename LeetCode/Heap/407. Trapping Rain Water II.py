@@ -42,7 +42,7 @@ class Solution:
             for i , j in [(x - 1, y) , (x + 1, y) , (x, y - 1) , (x, y + 1)] :
                 if 0 <= i < m and 0 <= j < n and heightMap[i][j] != -1 :
                     heapq.heappush(heap, (heightMap[i][j], i, j))
-					# If cell's height smaller than the level, then it can trap the rain water
+		    # If cell's height smaller than the level, then it can trap the rain water
                     if heightMap[i][j] < level : 
                         res += level - heightMap[i][j]
                     heightMap[i][j] = -1 # cell is visited ->set the height to -1
