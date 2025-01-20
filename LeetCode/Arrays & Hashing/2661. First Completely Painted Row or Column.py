@@ -5,7 +5,6 @@
 # Example 1:
 # 14 -> #4  -> #4 -> ## 
 # 23    23     2#    2#
-# image explanation for example 1
 # Input: arr = [1,3,4,2], mat = [[1,4],[2,3]]
 # Output: 2    Explanation: The moves are shown in order, and both the first row and second column of the matrix become fully painted at arr[2].
 
@@ -13,7 +12,6 @@
 # 325    3#5    3#5    3#5    3#5
 # 146 -> 146 -> 146 -> 146 -> 1#6
 # 879    879    #79    ##9    ##9
-# image explanation for example 2
 # Input: arr = [2,8,7,4,1,3,5,6,9], mat = [[3,2,5],[1,4,6],[8,7,9]]
 # Output: 3    Explanation: The second column becomes fully painted at arr[3].
  
@@ -45,4 +43,4 @@ class Solution:
             if row_freq[r] == cols or col_freq[c] == rows :
                 return i
         return -1
-      
+     
