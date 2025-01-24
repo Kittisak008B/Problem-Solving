@@ -50,7 +50,7 @@ class Solution:
             return dp[i]
         res = []
         for i in range(len(graph)) :
-            if dfs(i) :
+            if dfs(i) : # No cycle, safe paths
                 res.append(i)
         return res
       
