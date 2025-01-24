@@ -44,7 +44,7 @@ class Solution:
                 return dp[i]
             dp[i] = False
             for nei in graph[i] :
-                if not dfs(nei) :
+                if dfs(nei) == False :
                     return dp[i]
             dp[i] = True
             return dp[i]
@@ -52,6 +52,5 @@ class Solution:
         for i in range(len(graph)) :
             if dfs(i) :
                 res.append(i)
-        #print(dp)
         return res
       
