@@ -127,7 +127,7 @@ impl Solution {
             //cal longest path
             let mut longest_path = 0 ;
             for (person1 , person2) in pairs {
-                longest_path += 2 + bfs(&graph , person1 , person2) + bfs(&graph , person2 , person1);
+                longest_path += 2 + bfs(&graph , person1 , person2) + bfs(&graph , person2 , person1); // (Cycle with size == 2) + extended paths
             }
             longest_path
         }
