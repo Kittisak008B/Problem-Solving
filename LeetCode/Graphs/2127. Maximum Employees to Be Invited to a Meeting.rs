@@ -49,7 +49,6 @@
 use std::collections::{HashSet , VecDeque , HashMap};
 impl Solution {
     pub fn maximum_invitations(favorite: Vec<i32>) -> i32 {
-      
         // find max cycle length (Cycle with size > 2)
         fn get_max_cycle_length(fav : &Vec<i32>) -> i32 {
             let person_count = fav.len();
@@ -99,13 +98,14 @@ impl Solution {
         fn get_longest_path(fav: &Vec<i32>) -> i32 {
             let mut pairs = Vec::new();
             let mut visited = HashSet::new();
-            let n_persons = fav.len() as i32 ;
+            let n_persons = fav.len(); // usize by default
+
             //find cycle with size == 2 (a<-->b) pairs
-            for i in 0..n_persons {
-                if !visited.contains(&i) && fav[fav[i as usize] as usize] == i {
-                    pairs.push((i , fav[i as usize]));
-                    visited.insert(i);
-                    visited.insert(fav[i as usize]);
+            for i in 0..n_persons { // i is usize
+                if !visited.contains(&(i as i32)) && fav[fav[i] as usize] == i as i32{
+                    pairs.push((i as i32 , fav[i]));
+                    visited.insert(i as i32);
+                    visited.insert(fav[i]);
                 }
             }
             // println!("{:?}", visited);
@@ -114,7 +114,7 @@ impl Solution {
 
             //build adjacency list (graph)
             let mut graph : HashMap<i32 , Vec<i32>> = HashMap::new();
-            for (node , &destination) in fav.iter().enumerate() {
+            for (node , &destination) in fav.iter().enumerate() { // node is usize , destination is i32
                 if let Some(vec) = graph.get_mut(&destination) {
                     vec.push(node as i32);
                 } else {
@@ -127,7 +127,7 @@ impl Solution {
             //cal longest path
             let mut longest_path = 0 ;
             for (person1 , person2) in pairs {
-                longest_path += 2 + bfs(&graph , person1 , person2) + bfs(&graph , person2 , person1); //(Cycle with size == 2) + extended paths
+                longest_path += 2 + bfs(&graph , person1 , person2) + bfs(&graph , person2 , person1);
             }
             longest_path
         }
