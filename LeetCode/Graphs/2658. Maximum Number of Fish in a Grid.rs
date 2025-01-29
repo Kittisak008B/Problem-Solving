@@ -40,8 +40,8 @@ impl Solution {
             visited.insert((r , c));
             let directions = [(1, 0), (-1, 0), (0, 1), (0, -1)];
             for &(dr , dc) in directions.iter(){
-                let new_r = r as isize + dr;
-                let new_c = c as isize + dc;
+                let new_r = r as i32 + dr;
+                let new_c = c as i32 + dc;
                 total_fish += dfs(new_r as usize , new_c as usize , visited , grid , rows , cols);
             }
             total_fish
