@@ -35,20 +35,39 @@
 
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
-        #bfs
+        #A bipartite graph can be colored with two colors (let’s say 0 and 1) so that no adjacent nodes share the same color
+        def dfs(node , color , arr) :
+            arr[node] = color
+            for nei in graph[node] :
+                if arr[nei] == -1 : #if neighbor is uncolored->try to color it with opposite color
+                    if dfs(nei , 1 - color , arr) == False :
+                        return False
+                elif arr[nei] == color : #if same color
+                    return False
+            return True
         N = len(graph)
-        arr = [-1] * N
+        arr = [-1] * N #uncolored (unvisited)
         for node in range(N) :
             if arr[node] == -1 :
-                q = collections.deque([node])
-                arr[node] = 0
-                while q :
-                    src = q.popleft() 
-                    for nei in graph[src] :
-                        if arr[nei] == - 1 :
-                            arr[nei]  = 1 - arr[src]
-                            q.append(nei)
-                        elif arr[nei] == arr[src] :
-                            return False
-                        #print(src, nei ,arr, q)
-        return True 
+                if dfs(node , 0 , arr) == False :
+                    return False
+        return True
+     
+# class Solution:  #bfs
+#     def isBipartite(self, graph: List[List[int]]) -> bool:  
+#         N = len(graph)   
+#         arr = [-1] * N
+#         for node in range(N) :
+#             if arr[node] == -1 :
+#                 q = collections.deque([node])
+#                 arr[node] = 0
+#                 while q :
+#                     src = q.popleft() 
+#                     for nei in graph[src] :
+#                         if arr[nei] == - 1 :
+#                             arr[nei]  = 1 - arr[src]
+#                             q.append(nei)
+#                         elif arr[nei] == arr[src] :
+#                             return False
+#                         #print(src, nei ,arr, q)
+#         return True 
