@@ -1,5 +1,5 @@
 func lenLongestFibSubseq(arr []int) int {
-  longest := 0
+	longest := 0
 	s := make(map[int]bool) 
 	for _, num := range arr {
 		s[num] = true
